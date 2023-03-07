@@ -2,7 +2,9 @@ class View {
   constructor(game, el) {
     this.game = game;
     this.el = el;
+    this.handleClick = this.handleClick.bind(this);
     this.setupBoard(el);
+    this.bindEvents();
   }
 
   setupBoard() {
@@ -19,9 +21,14 @@ class View {
     this.el.append(grid);
   }
 
-  bindEvents() {}
+  bindEvents() {
+    this.el.addEventListener("click", this.handleClick);
+  }
 
-  handleClick(e) {}
+  handleClick(e) {
+    const t = e.target;
+    "LI" === t.nodeName && this.makeMove(t);
+  }
 
   makeMove(square) {}
 }
