@@ -1,0 +1,20 @@
+{
+  "name": "w9d2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kchannn13/W9D2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kchannn13/W9D2/issues"
+  },
+  "homepage": "https://github.com/kchannn13/W9D2#readme",
+  "description": ""
+}
