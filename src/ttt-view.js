@@ -30,7 +30,27 @@ class View {
     "LI" === t.nodeName && this.makeMove(t);
   }
 
-  makeMove(square) {}
+  makeMove(square) {
+    const e = JSON.parse(square.dataset.pos),
+      r = this.game.currentPlayer;
+    try {
+      this.game.playMove(e);
+    } catch (square) {
+      alert("This " + square.msg.toLowerCase());
+    }
+    square.classList.add(r), this.game.isOver() && this.handleGameOver();
+  }
+
+  handleGameOver() {
+    this.el.removeEventListener("click", this.handleClick),
+      this.el.classList.add("game-over");
+    const t = this.game.winner(),
+      e = document.createElement("figcaption");
+    t
+      ? (this.el.classList.add(`winner-${t}`), e.append(`You win, ${t}!`))
+      : e.append("It's a draw!"),
+      this.el.append(e);
+  }
 }
 
 module.exports = View;
